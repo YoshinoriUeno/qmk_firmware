@@ -190,18 +190,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EISU:
           if (record->event.pressed) {
             if(keymap_config.swap_lalt_lgui==false){
-              register_code(KC_LANG1);
-            }else{
-              SEND_STRING(SS_LALT("`"));
-            }
-          } else {
-            unregister_code(KC_LANG1);
-          }
-          return false;
-          break;
-        case KANA:
-          if (record->event.pressed) {
-            if(keymap_config.swap_lalt_lgui==false){
               register_code(KC_LANG2);
             }else{
               SEND_STRING(SS_LALT("`"));
@@ -211,6 +199,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
+        case KANA:
+          if (record->event.pressed) {
+            if(keymap_config.swap_lalt_lgui==false){
+              register_code(KC_LANG1);
+            }else{
+              SEND_STRING(SS_LALT("`"));
+            }
+          } else {
+            unregister_code(KC_LANG1);
+          }
+          return false;
+          break;
       }
     return true;
 };
+
+void matrix_scan_user(void) {
+#ifdef RGBLIGHT_ENABLE
+#ifdef PROTOCOL_LUFA
+  switch (USB_DeviceState) {
+    case DEVICE_STATE_Configured:
+      rgblight_mode(rgblight_get_mode());
+      break;
+    case DEVICE_STATE_Unattached:
+    case DEVICE_STATE_Suspended:
+    case DEVICE_STATE_Powered:
+    case DEVICE_STATE_Default:
+    case DEVICE_STATE_Addressed:
+      rgblight_effect_breathing(100);
+      //rgblight_setrgb(0,0,0);
+  }
+#endif
+#endif
+}
