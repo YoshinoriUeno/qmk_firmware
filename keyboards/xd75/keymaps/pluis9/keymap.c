@@ -17,20 +17,14 @@
 
 // Layer shorthand
 #define _QWERTY 0
-#define _COLEMAK 1
-#define _DVORAK 2
-#define _EUCALYN 3
-#define _LOWER 4
-#define _RAISE 5
+#define _EUCALYN 1
+#define _FN 2
 #define _ADJUST 16
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
-  COLEMAK,
-  DVORAK,
   EUCALYN,
-  LOWER,
-  RAISE,
+  FN,
   EISU,
   KANA
 };
@@ -41,51 +35,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------------------------------------------------------------------------------------------------------------------------------------.
  * | ESC    | 1      | 2      | 3      | 4      | 5      | 7      | 8      | 9      | 6      | 7      | 8      | 9      | 0      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | W      | E      | R      | T      | 4      | 5      | 6      | Y      | U      | I      | O      | P      | |      |
+ * | TAB    | Q      | W      | E      | R      | T      | 4      | 5      | 6      | Y      | U      | I      | O      | P      | -      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | LCTRL  | A      | S      | D      | F      | G      | 1      | 2      | 3      | H      | J      | K      | L      | ;      | ENTER  |
+ * | LCTRL  | A      | S      | D      | F      | G      | 1      | 2      | 3      | H      | J      | K      | L      | ;      | '      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
  * | LSHIFT | Z      | X      | C      | V      | B      | [      | 0      | ]      | N      | M      | ,      | .      | /      | RSHIFT |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | ADJUST | `      | LALT   | GUI    | EISU   | LOWER  | ENTER  | .      | SPACE  | RAISE  | KANA   | LEFT   | DOWN   | UP     | RIGHT  |
+ * | ADJUST | `      | LALT   | GUI    | EISU   |      ENTER      | FN     |      SPACE      | KANA   | LEFT   | DOWN   | UP     | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
  [_QWERTY] = {
   { KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_KP_7, KC_KP_8, KC_KP_9, KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC },
-  { KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_KP_4, KC_KP_5, KC_KP_6, KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_BSLS },
-  { KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_KP_1, KC_KP_2, KC_KP_3, KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_ENT },
+  { KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_KP_4, KC_KP_5, KC_KP_6, KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_MINS },
+  { KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_KP_1, KC_KP_2, KC_KP_3, KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOTE },
   { KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LBRC, KC_KP_0, KC_RBRC, KC_N,   KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
-  { MO(_ADJUST), KC_GRV, KC_LALT, KC_LGUI, EISU, LOWER,   KC_PENT, KC_PDOT, KC_SPC,  RAISE,  KANA,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT },
+  { MO(_ADJUST), KC_GRV, KC_LALT, KC_LGUI, EISU, KC_ENT,  KC_ENT,  TT(_FN), KC_SPC,  KC_SPC, KANA,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT },
  },
 
  /* EUCALYN
   * .--------------------------------------------------------------------------------------------------------------------------------------.
   * | ESC    | 1      | 2      | 3      | 4      | 5      | 7      | 8      | 9      | 6      | 7      | 8      | 9      | 0      | BACKSP |
   * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
-  * | TAB    | /      | ,      | .      | F      | Q      | 4      | 5      | 6      | M      | R      | D      | Y      | P      | -      |
+  * | TAB    | Q      | W      | ,      | .      | /      | 4      | 5      | 6      | M      | R      | D      | Y      | P      | -      |
   * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
   * | LCTRL  | A      | O      | E      | I      | U      | 1      | 2      | 3      | G      | T      | K      | S      | N      | '      |
   * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
-  * | LSHIFT | Z      | X      | C      | V      | W      | [      | 0      | ]      | B      | H      | J      | L      | ;      | RSHIFT |
+  * | LSHIFT | Z      | X      | C      | V      | F      | [      | 0      | ]      | B      | H      | J      | L      | ;      | RSHIFT |
   * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
-  * | ADJUST | `      | LALT   | GUI    | EISU   | LOWER  | ENTER  | .      | SPACE  | RAISE  | KANA   | LEFT   | DOWN   | UP     | RIGHT  |
+  * | ADJUST | `      | LALT   | GUI    | EISU   |      ENTER      | FN     |      SPACE      | KANA   | LEFT   | DOWN   | UP     | RIGHT  |
   * '--------------------------------------------------------------------------------------------------------------------------------------'
   */
 
  [_EUCALYN] = {
    { KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_KP_7, KC_KP_8, KC_KP_9, KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC },
-   { KC_TAB,  KC_SLSH, KC_COMM, KC_DOT,  KC_F,    KC_Q,    KC_KP_4, KC_KP_5, KC_KP_6, KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_MINS },
+   { KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH, KC_KP_4, KC_KP_5, KC_KP_6, KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_MINS },
    { KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,    KC_KP_1, KC_KP_2, KC_KP_3, KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_QUOTE },
-   { KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_W,    KC_LBRC, KC_KP_0, KC_RBRC, KC_B,   KC_H,   KC_J,    KC_L,    KC_SCLN, KC_RSFT },
-   { MO(_ADJUST), KC_GRV, KC_LALT, KC_LGUI, EISU, LOWER,   KC_PENT, KC_PDOT, KC_SPC,  RAISE,  KANA,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT },
+   { KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_LBRC, KC_KP_0, KC_RBRC, KC_B,   KC_H,   KC_J,    KC_L,    KC_SCLN, KC_RSFT },
+   { MO(_ADJUST), KC_GRV, KC_LALT, KC_LGUI, EISU, KC_ENT,  KC_ENT,  TT(_FN), KC_SPC,  KC_SPC, KANA,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT },
   },
 
-/* LOWER
+/* FN
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * |        |        |        |        |        |        | INSERT | HOME   | PGUP   |        |        |        |        |        | DELETE |
+ * |        | F1     | F2     | F3     | F4     | F5     | INSERT | HOME   | PGUP   | F6     | F7     | F8     | F9     | F10    | DELETE |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        | BS     | 7      | 8      | 9      | =      | DELETE | END    | PGDOWN |        |        |        | +      | |      |        |
+ * |        | BS     | 7      | 8      | 9      | =      | DELETE | END    | PGDOWN | F11    | F12    |        | +      | |      |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * |        |        | 4      | 5      | 6      | -      | PRSCRN | NUMLOCK| SCLOCK |        |        | UP     | =      | \      |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -95,39 +89,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_LOWER] = {
-  { _______, _______, _______, _______, _______, _______, KC_INS,  KC_HOME, KC_PGUP, _______, _______, _______, _______, _______, KC_DEL },
-  { _______, KC_BSPC, KC_KP_7, KC_KP_8, KC_KP_9, KC_PEQL, KC_DEL,  KC_END,  KC_PGDN, _______, _______, _______, KC_PLUS, KC_PIPE, _______ },
+ [_FN] = {
+  { _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_INS,  KC_HOME, KC_PGUP, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_DEL },
+  { _______, KC_BSPC, KC_KP_7, KC_KP_8, KC_KP_9, KC_PEQL, KC_DEL,  KC_END,  KC_PGDN, KC_F11,  KC_F12,  _______, KC_PLUS, KC_PIPE, _______ },
   { _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, KC_PMNS, KC_PSCR, KC_NLCK, KC_SLCK, _______, _______, KC_UP,   KC_EQL,  KC_BSLS, _______ },
   { _______, KC_KP_0, KC_KP_1, KC_KP_2, KC_KP_3, KC_PPLS, _______, KC_CAPS, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______ },
   { _______, KC_PDOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
 },
 
-/* RAISE
- * .--------------------------------------------------------------------------------------------------------------------------------------.
- * |        | F1     | F2     | F3     | F4     | F5     | INSERT | HOME   | PGUP   | F6     | F7     | F8     | F9     | F10    | DELETE |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        | F11    | F12    |        |        |        | DELETE | END    | PGDOWN |        |        |        | +      | |      |        |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        | PRSCRN | NUMLOCK| SCLOCK |        |        | UP     | =      | \      |        |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        | CAPS   |        |        | LEFT   | DOWN   | RIGHT  |        |        |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
- * '--------------------------------------------------------------------------------------------------------------------------------------'
- */
-
- [_RAISE] = {
-  { _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_INS,  KC_HOME, KC_PGUP, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_DEL },
-  { _______, KC_F11,  KC_F12,  _______, _______, _______, KC_DEL,  KC_END,  KC_PGDN, _______, _______, _______, KC_PLUS, KC_PIPE, _______ },
-  { _______, _______, _______, _______, _______, _______, KC_PSCR, KC_NLCK, KC_SLCK, _______, _______, KC_UP,   KC_EQL,  KC_BSLS, _______ },
-  { _______, _______, _______, _______, _______, _______, _______, KC_CAPS, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______ },
-  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
-},
-
 /* ADJUST
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * |        |        |        |        |        |        |        |        |        |        |        |        |        |        | DELETE |
+ * |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * |        | RESET  |        |        |        |        |        |        |        | QWERTY |EUCALYN |        |        |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -140,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_ADJUST] = {
-  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL },
+  { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
   { _______, RESET,   _______, _______, _______, _______, _______, _______, _______, QWERTY,  EUCALYN, _______, _______, _______, _______ },
   { _______, _______, _______, _______, _______, AG_NORM, _______, _______, _______, AG_SWAP, _______, _______, _______, _______, _______ },
   { _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI },
@@ -179,44 +151,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case COLEMAK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_COLEMAK);
-          }
-          return false;
-          break;
-        case DVORAK:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_DVORAK);
-          }
-          return false;
-          break;
         case EUCALYN:
             if (record->event.pressed) {
               set_single_persistent_default_layer(_EUCALYN);
             }
             return false;
             break;
-        case LOWER:
-          if (record->event.pressed) {
-            layer_on(_LOWER);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          } else {
-            layer_off(_LOWER);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          }
-          return false;
-          break;
-        case RAISE:
-          if (record->event.pressed) {
-            layer_on(_RAISE);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          } else {
-            layer_off(_RAISE);
-            update_tri_layer(_LOWER, _RAISE, _ADJUST);
-          }
-          return false;
-          break;
         case EISU:
           if (record->event.pressed) {
             if(keymap_config.swap_lalt_lgui==false){
