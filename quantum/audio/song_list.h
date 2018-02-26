@@ -280,4 +280,16 @@
 #define TERMINAL_SOUND \
     E__NOTE(_C5 )
 
+    #define FAMIMA \
+    QD_NOTE(_FS5), \
+    QD_NOTE(_D5),  \
+    QD_NOTE(_A4),  \
+    QD_NOTE(_D5),  \
+    QD_NOTE(_E5),  \
+    WD_NOTE(_A5),  \
+    QD_NOTE(_E5),  \
+    QD_NOTE(_FS5), \
+    QD_NOTE(_E5),  \
+    QD_NOTE(_A4),  \
+    WD_NOTE(_D5),
 #endif
