@@ -27,11 +27,13 @@ extern uint8_t is_master;
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
-#define _EUCALYN 1
-#define _LOWER 3
-#define _RAISE 4
-#define _ADJUST 16
+enum layer_number {
+    _QWERTY = 0,
+    _EUCALYN,
+    _LOWER,
+    _RAISE,
+    _ADJUST
+};
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -82,23 +84,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Eucalyn
    * ,-----------------------------------------.             ,-----------------------------------------.
-   * | `    | 1    | 2    | 3    | 4    | 5    |             | 6    | 7    | 8    | 9    | 0    |BACKSP|
+   * | ESC  | 1    | 2    | 3    | 4    | 5    |             | 6    | 7    | 8    | 9    | 0    |BACKSP|
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * | TAB  | Q    | W    | ,    | .    | /    |             | M    | R    | D    | Y    | P    | -    |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
    * | LCTRL| A    | O    | E    | I    | U    |             | G    | T    | K    | S    | N    | '    |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
-   * |LSHIFT| Z    | X    | C    | V    | F    |SPACE | ]    | B    | H    | J    | L    | ;    |RSHIFT|
+   * |LSHIFT| Z    | X    | C    | V    | F    |SPACE |ENTER | B    | H    | J    | L    | UP   |RSHIFT|
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
-   * |ADJUST| ESC  | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | LEFT | DOWN | UP   |RIGHT |
+   * |ADJUST| `    | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | ;    | LEFT | DOWN |RIGHT |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_EUCALYN] = KEYMAP( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC, \
+      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC, \
       KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH,                   KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_MINS, \
       KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                      KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_QUOTE, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_SPC,  KC_RBRC, KC_B,   KC_H,   KC_J,    KC_L,    KC_SCLN, KC_RSFT, \
-      ADJUST,  KC_ESC,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_ENT,  KC_SPC,  RAISE,  KANA,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_SPC,  KC_ENT,  KC_B,   KC_H,   KC_J,    KC_L,    KC_UP,   KC_RSFT, \
+      ADJUST,  KC_GRV,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_ENT,  KC_SPC,  RAISE,  KANA,   KC_SCLN, KC_LEFT, KC_DOWN, KC_RGHT \
       ),
 
 
@@ -478,15 +480,10 @@ void matrix_update(struct CharacterMatrix *dest,
 
 //assign the right code to your layers for OLED display
 #define L_BASE 0
-#define L_LOWER 8
-#define L_RAISE 16
-#define L_FNLAYER 64
-#define L_NUMLAY 128
-#define L_NLOWER 136
-#define L_NFNLAYER 192
-#define L_MOUSECURSOR 256
-#define L_ADJUST 65536
-#define L_ADJUST_TRI 65560
+#define L_LOWER (1<<_LOWER)
+#define L_RAISE (1<<_RAISE)
+#define L_ADJUST (1<<_ADJUST)
+#define L_ADJUST_TRI (L_ADJUST|L_RAISE|L_LOWER)
 
 static void render_logo(struct CharacterMatrix *matrix) {
 
