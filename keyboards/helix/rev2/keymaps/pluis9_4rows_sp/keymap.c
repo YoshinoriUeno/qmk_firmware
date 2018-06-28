@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |Adjust| Esc  | Alt  | GUI  | EISU |Lower |ENTER |Space |Raise | KANA | Left | Down |  Up  |Right |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_QWERTY] = KEYMAP( \
+  [_QWERTY] = LAYOUT( \
       KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
       KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
       KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |ADJUST| ESC  | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | LEFT | DOWN | UP   |RIGHT |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_EUCALYN] = KEYMAP( \
+  [_EUCALYN] = LAYOUT( \
       KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC, \
       KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH,                   KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_MINS, \
       KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                      KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_QUOTE, \
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |   .  |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_LOWER] = KEYMAP( \
+  [_LOWER] = LAYOUT( \
       _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
       _______, KC_BSPC, KC_7,    KC_8,    KC_9,    KC_ASTR,                   KC_GRV,  KC_TILD,   KC_EXLM, KC_AT,   KC_HASH, _______, \
       _______, KC_SLSH, KC_4,    KC_5,    KC_6,    KC_MINS,                   KC_DLR,  KC_PERC,   KC_CIRC, KC_AMPR, KC_PIPE, _______, \
@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_RAISE] = KEYMAP( \
+  [_RAISE] = LAYOUT( \
       _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
       _______, S(KC_LBRC),KC_F7, KC_F8,   KC_F9,   KC_F12,                    KC_PSCR, KC_HOME, KC_UP,   KC_PGUP, S(KC_RBRC), _______, \
       _______, S(KC_9), KC_F4,   KC_F5,   KC_F6,   KC_F11,                    KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, S(KC_0), _______, \
@@ -159,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      |      |      |      |      | MODE | HUE- | SAT- | VAL- |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_ADJUST] =  KEYMAP( \
+  [_ADJUST] =  LAYOUT( \
       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
       _______, RESET,   RGBRST,  _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL, \
       _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  EUCALYN, _______, _______, _______, \
@@ -183,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |Adjust| Esc  | Alt  | GUI  | EISU |Lower |Space |Space |Raise | KANA | Left | Down |  Up  |Right |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_QWERTY] = KEYMAP( \
+  [_QWERTY] = LAYOUT( \
       KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
       KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                      KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
@@ -201,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |ADJUST| ESC  | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | ;    | LEFT | DOWN |RIGHT |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_EUCALYN] = KEYMAP( \
+  [_EUCALYN] = LAYOUT( \
       KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH,                   KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_BSPC, \
       KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                      KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_QUOTE, \
       KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,                      KC_B,   KC_H,   KC_J,    KC_L,    KC_UP,   KC_RSFT, \
@@ -220,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |   .  |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_LOWER] = KEYMAP( \
+  [_LOWER] = LAYOUT( \
       _______, KC_BSPC, KC_7,    KC_8,    KC_9,    KC_ASTR,                   KC_GRV,  KC_TILD,   KC_EXLM, KC_AT,   KC_HASH, _______, \
       _______, KC_SLSH, KC_4,    KC_5,    KC_6,    KC_MINS,                   KC_DLR,  KC_PERC,   KC_CIRC, KC_AMPR, KC_PIPE, _______, \
       _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_PLUS,                   KC_UNDS, S(KC_QUOT),KC_QUOT, KC_EQL,  KC_BSLS, _______, \
@@ -238,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      |      |      |      |      | Next | Vol- | Vol+ | Play |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_RAISE] = KEYMAP( \
+  [_RAISE] = LAYOUT( \
       _______, S(KC_LBRC),KC_F7, KC_F8,   KC_F9,   KC_F12,                    KC_PSCR, KC_HOME, KC_UP,   KC_PGUP, S(KC_RBRC), _______, \
       _______, S(KC_9), KC_F4,   KC_F5,   KC_F6,   KC_F11,                    KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, S(KC_0), _______, \
       _______, KC_LBRC, KC_F1,   KC_F2,   KC_F3,   KC_F10,                    KC_DEL,  KC_END,  _______, KC_PGDN, KC_RBRC, _______, \
@@ -256,7 +256,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |      |      |      |      |      |      |      |      |      |      | MODE | HUE- | SAT- | VAL- |
    * `-------------------------------------------------------------------------------------------------'
    */
-  [_ADJUST] =  KEYMAP( \
+  [_ADJUST] =  LAYOUT( \
       _______, RESET,   RGBRST,  _______, _______, _______,                   _______, _______, _______, _______, _______, KC_DEL, \
       _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM,                   AG_SWAP, QWERTY,  EUCALYN, _______, _______, _______, \
       _______, _______, _______, _______, _______, _______,                   _______, _______, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, \
