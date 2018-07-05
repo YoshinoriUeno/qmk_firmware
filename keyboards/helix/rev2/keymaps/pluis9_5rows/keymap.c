@@ -86,21 +86,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------.             ,-----------------------------------------.
    * | ESC  | 1    | 2    | 3    | 4    | 5    |             | 6    | 7    | 8    | 9    | 0    |BACKSP|
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | TAB  | Q    | W    | ,    | .    | /    |             | M    | R    | D    | Y    | P    | -    |
+   * | TAB  | Q    | W    | ,    | .    | /    |             | M    | R    | D    | Y    | P    | ;    |
    * |------+------+------+------+------+------|             |------+------+------+------+------+------|
-   * | LCTRL| A    | O    | E    | I    | U    |             | G    | T    | K    | S    | N    | '    |
+   * | LCTRL| A    | O    | E    | I    | U    |             | G    | T    | K    | S    | N    | -    |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * |LSHIFT| Z    | X    | C    | V    | F    |SPACE |ENTER | B    | H    | J    | L    | UP   |RSHIFT|
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
-   * |ADJUST| `    | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | ;    | LEFT | DOWN |RIGHT |
+   * |ADJUST| `    | LALT | GUI  | EISU |Lower |ENTER |SPACE |Raise |KANA  | '    | LEFT | DOWN |RIGHT |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_EUCALYN] = LAYOUT( \
       KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,   KC_7,   KC_8,    KC_9,    KC_0,    KC_BSPC, \
-      KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH,                   KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_MINS, \
-      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                      KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_QUOTE, \
+      KC_TAB,  KC_Q,    KC_W,    KC_COMM, KC_DOT,  KC_SLSH,                   KC_M,   KC_R,   KC_D,    KC_Y,    KC_P,    KC_SCLN, \
+      KC_LCTL, KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                      KC_G,   KC_T,   KC_K,    KC_S,    KC_N,    KC_MINS, \
       KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_SPC,  KC_ENT,  KC_B,   KC_H,   KC_J,    KC_L,    KC_UP,   KC_RSFT, \
-      ADJUST,  KC_GRV,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_ENT,  KC_SPC,  RAISE,  KANA,   KC_SCLN, KC_LEFT, KC_DOWN, KC_RGHT \
+      ADJUST,  KC_GRV,  KC_LALT, KC_LGUI, EISU,    LOWER,   KC_ENT,  KC_SPC,  RAISE,  KANA,   KC_QUOTE, KC_LEFT, KC_DOWN, KC_RGHT \
       ),
 
 
