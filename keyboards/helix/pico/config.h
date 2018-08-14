@@ -95,7 +95,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef RGBLED_BACK
   #define RGBLED_NUM 25
 #else
-  #define RGBLED_NUM 6
+  #define RGBLED_NUM 5
 #endif
 
 #ifndef IOS_DEVICE_ENABLE
